@@ -29,7 +29,8 @@ function ReachEditor() {
         (change: HistoryEntry<TLRecord>) => {
             const snapshot = change.changes
             // Update the drawing data in the context
-            setDrawingData(editor.store.getSnapshot())
+            setDrawingData(editor.store.getSnapshot() as any)
+
             // Emit the snapshot to the server
             socket.emit(SocketEvent.DRAWING_UPDATE, { snapshot })
         },
@@ -61,7 +62,8 @@ function ReachEditor() {
     useEffect(() => {
         // Load the drawing data from the context
         if (drawingData && Object.keys(drawingData).length > 0) {
-            editor.store.loadSnapshot(drawingData)
+            editor.store.loadSnapshot(drawingData as any)
+
         }
     }, [])
 
