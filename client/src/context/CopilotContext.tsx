@@ -113,8 +113,7 @@ const CopilotContextProvider = ({ children }: { children: ReactNode }) => {
             toast.loading("Generating code...")
 
             const response = await axios.post(
-                //"https://codeverse-neww.onrender.com/api/copilot",
-                "http://localhost:3000/api/copilot",
+                "https://codeverse-6lz8.onrender.com/api/copilot",
                 { prompt: input }
             )
 
